@@ -1,8 +1,10 @@
 import { describe, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 
 import { WrappedApp, App } from './App';
+import renderWithRouter from './pages/utils/renderWithRouter';
 
 describe('App', () => {
   it('renders home page with title', () => {
@@ -27,5 +29,16 @@ describe('App', () => {
       level: 1,
     });
     expect(notFound).toBeInTheDocument();
+  });
+
+  it('renders home page when clicking on the link', async () => {
+    const { history } = renderWithRouter(<App />, { route: '/xablau' });
+
+    const link = screen.getByRole('link', { name: /go to home page/i });
+    userEvent.click(link);
+
+    await waitFor(() => {
+      expect(history.location.pathname).toBe('/');
+    });
   });
 });
