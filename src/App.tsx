@@ -1,5 +1,5 @@
 function App() {
-  return <div className="text-3xl">start</div>;
+  return <h1 className="text-3xl">Rayo Reader</h1>;
 }
 
 export default App;
