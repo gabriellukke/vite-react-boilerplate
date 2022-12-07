@@ -4,7 +4,7 @@ import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 
 import { WrappedApp, App } from './App';
-import renderWithRouter from './pages/utils/renderWithRouter';
+import renderWithRouter from './utils/renderWithRouter';
 
 describe('App', () => {
   it('renders home page with title', () => {
