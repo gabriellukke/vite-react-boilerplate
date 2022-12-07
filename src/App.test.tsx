@@ -11,7 +11,7 @@ describe('App', () => {
     render(<WrappedApp />);
 
     const pageTitle = screen.getByRole('heading', {
-      name: /rayo reader/i,
+      name: /vite react boilerplate/i,
       level: 1,
     });
     expect(pageTitle).toBeInTheDocument();
